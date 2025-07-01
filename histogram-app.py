@@ -35,8 +35,8 @@ if mode == "RGB (Per Channel)":
     hasil_eq = cv2.merge((eq_b, eq_g, eq_r))
 
     col1, col2 = st.columns(2)
-    col1.image(cv2.cvtColor(zzz_img, cv2.COLOR_BGR2RGB), caption="Gambar Asli", use_column_width=True)
-    col2.image(cv2.cvtColor(hasil_eq, cv2.COLOR_BGR2RGB), caption="Setelah Ekualisasi", use_column_width=True)
+    col1.image(cv2.cvtColor(zzz_img, cv2.COLOR_BGR2RGB), caption="Gambar Asli", use_container_width=True)
+    col2.image(cv2.cvtColor(hasil_eq, cv2.COLOR_BGR2RGB), caption="Setelah Ekualisasi", use_container_width=True)
 
     fig, axs = plt.subplots(2, 3, figsize=(15, 6))
     colors = ['blue', 'green', 'red']
@@ -57,8 +57,8 @@ else:
     eq_gray = cv2.equalizeHist(gray)
 
     col1, col2 = st.columns(2)
-    col1.image(gray, caption="Asli (Grayscale)", channels="GRAY", use_column_width=True)
-    col2.image(eq_gray, caption="Setelah Ekualisasi", channels="GRAY", use_column_width=True)
+    col1.image(gray, caption="Asli (Grayscale)", channels="GRAY", use_container_width=True)
+    col2.image(eq_gray, caption="Setelah Ekualisasi", channels="GRAY", use_container_width=True)
 
     fig, axs = plt.subplots(1, 2, figsize=(12, 5))
     axs[0].hist(gray.ravel(), bins=256, range=[0, 256], color='gray')
