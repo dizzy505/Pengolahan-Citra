@@ -10,7 +10,7 @@ st.title("Ekualisasi Histogram")
 
 zzz = 'img/zzz.png'
 
-mode = st.selectbox("Pilih mode ekualisasi:", ["RGB (Per Channel)", "Grayscale"])
+mode = st.selectbox("Pilih mode ekualisasi:", ["RGB", "Grayscale"])
 negasi = st.checkbox("Aktifkan gambar negatif")
 
 brightness = st.slider("Brightness", -100, 100, 0)
@@ -27,7 +27,7 @@ zzz_img = cv2.convertScaleAbs(zzz_img, alpha=kontras, beta=brightness)
 if negasi:
     zzz_img = 255 - zzz_img
 
-if mode == "RGB (Per Channel)":
+if mode == "RGB":
     b, g, r = cv2.split(zzz_img)
     eq_b = cv2.equalizeHist(b)
     eq_g = cv2.equalizeHist(g)
